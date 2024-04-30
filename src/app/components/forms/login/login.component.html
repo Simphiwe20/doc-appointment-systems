@@ -1,0 +1,49 @@
+<div class="flex full-height column center-center">
+    <div class="main-container height-90">
+        <form #signForm="ngForm" class="flex column c-start-center">
+            <h3 class="no-margin">Sign In</h3>
+            <p class="c-grey">Hi welcome back, you've been missed</p>
+            <mat-label class="width-90">Email</mat-label>
+            <mat-form-field appearance="outline" class="width-90 input">
+                <input type="email" [(ngModel)]="userCredentials.email" #email="ngModel" name="email" matInput placeholder="Ex. pat@example.com">
+                <mat-error *ngIf="">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-label class="width-90">Password</mat-label>
+            <mat-form-field appearance="outline" class="width-90 input">
+                <input type="password" [(ngModel)]="userCredentials.password" #password="ngModel" name="password"  matInput placeholder="***********">
+                <mat-error *ngIf="">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="">
+                    Password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <div class="width-90">
+                <p class="link text-end">forgot password?</p>
+            </div>
+            <div class="b-btn width-90">
+                <button mat-stroked-button class="full-width margin-top10px" color="primary">Sign In</button>
+            </div>
+            <div class="flex center-center width-90 gap-1em margin-top-20px">
+                <div>
+                    <hr>
+                </div>
+                <p class="no-margin c-grey">Or sign in with</p>
+                <div>
+                    <hr>
+                </div>
+            </div>
+            <div class="flex center-center width-90 gap-1em margin-top-20px">
+                <div class="round flex center-center box-60px b-grey" *ngFor="let icon of icons">
+                    <img [src]=icon.path>
+                </div>
+            </div>
+            <p>Don't have an account <span class="link pointer">Sign Up</span></p>
+        </form>
+    </div>
+</div>
