@@ -1,1 +1,28 @@
-<p>verify-code works!</p>
+<div class="flex r-start-center">
+    <div class="main-container">
+        <div class="box-50px round b-grey flex center-center">
+            <mat-icon>west</mat-icon>
+        </div>
+        <h1 class='text-center'>Verify Code</h1>
+        <p class="c-grey text-center">Please enter the code we just to email</p>
+        <div class=" flex gap-1em r-start-center">
+            <mat-form-field appearance="outline" class="code-input">
+                <input class="text-center" [(ngModel)]="code.a" #a="ngModel" name="a"  matInput placeholder="-" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="code-input">
+                <input class="text-center" [(ngModel)]="code.b" #b="ngModel" name="b"  matInput placeholder="-" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="code-input">
+                <input class="text-center" [(ngModel)]="code.c" #c="ngModel" name="c"  matInput placeholder="-" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="code-input">
+                <input class="text-center" [(ngModel)]="code.d" #d="ngModel" name="d"  matInput placeholder="-" required>
+            </mat-form-field>
+        </div>
+        <p class="c-grey text-center no-margin-b">Didn't receive OTP?</p>
+        <p class="link text-center">Resend code</p>
+        <div class="b-btn full-width flex center-center">
+            <button mat-stroked-button class="width-90 margin-top10px" color="primary"  (click)="submit()">Verify</button>
+        </div>
+    </div>
+</div>

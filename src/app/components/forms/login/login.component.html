@@ -5,29 +5,27 @@
             <p class="c-grey">Hi welcome back, you've been missed</p>
             <mat-label class="width-90">Email</mat-label>
             <mat-form-field appearance="outline" class="width-90 input">
-                <input type="email" [(ngModel)]="userCredentials.email" #email="ngModel" name="email" matInput placeholder="Ex. pat@example.com">
-                <mat-error *ngIf="">
+                <input type="email" [pattern]="emailPattern" [(ngModel)]="userCredentials.email" #email="ngModel" name="email" matInput placeholder="Ex. pat@example.com" required>
+                <mat-error *ngIf="email.invalid && email.errors && email.errors['pattern']">
                     Please enter a valid email address
                 </mat-error>
-                <mat-error *ngIf="">
+                <mat-error *ngIf="email.invalid && email.errors && email.errors['required']">
                     Email is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
             <mat-label class="width-90">Password</mat-label>
             <mat-form-field appearance="outline" class="width-90 input">
-                <input type="password" [(ngModel)]="userCredentials.password" #password="ngModel" name="password"  matInput placeholder="***********">
-                <mat-error *ngIf="">
-                    Please enter a valid email address
-                </mat-error>
-                <mat-error *ngIf="">
+                <input [type]="isVisible ? 'text' : 'password'" [(ngModel)]="userCredentials.password" #password="ngModel" name="password"  matInput placeholder="***********" required>
+                <mat-error *ngIf="password.invalid && password.errors && password.errors['required']">
                     Password is <strong>required</strong>
                 </mat-error>
+                <mat-icon (click)="pwdVisibility()" matSuffix>{{isVisible ? 'visibility' : 'visibility_off'}}</mat-icon>
             </mat-form-field>
             <div class="width-90">
                 <p class="link text-end">forgot password?</p>
             </div>
             <div class="b-btn width-90">
-                <button mat-stroked-button class="full-width margin-top10px" color="primary">Sign In</button>
+                <button mat-stroked-button class="full-width margin-top10px" color="primary"  (click)="submit(signForm)">Sign In</button>
             </div>
             <div class="flex center-center width-90 gap-1em margin-top-20px">
                 <div>

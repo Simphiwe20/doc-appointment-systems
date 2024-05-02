@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-change-password',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class ChangePasswordComponent {
 
+  userPasswords: any = {
+    password: '',
+    confirmPassword: ''
+  }
+  isVisible: boolean = false
+
+  pwdVisibility() {
+    
+  }
+
+  submit(form: NgForm) {
+
+  }
 }

@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class VerifyCodeComponent {
 
+  code: any = {
+    a: '',
+    b: '',
+    c: '',
+    d: ''
+  }
+
+  submit() {
+    
+  }
+
 }
