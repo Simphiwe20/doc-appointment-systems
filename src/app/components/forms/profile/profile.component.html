@@ -1,45 +1,41 @@
 <div class="flex full-height column center-center">
     <div class="main-container height-90">
-        <form #signUpForm="ngForm" class="flex column c-start-center">
+        <form [formGroup]="userDetails" class="flex column c-start-center">
             <h3 class="no-margin">Complete Profile</h3>
             <p class="c-grey">Don't worry only you can see your personal data. No one else will be able to see it</p>
             <mat-label class="width-90">Full Name</mat-label>
             <mat-form-field appearance="outline" class="width-90 input">
-                <input type="text"  [(ngModel)]="userDetails.name" #name="ngModel" name="name" matInput placeholder="Ex. Simphiwe Makhathini" required>
-                <mat-error *ngIf="name.invalid && name.errors && name.errors['required']">
+                <input formControlName="fullName" type="text" matInput placeholder="Ex. Simphiwe Makhathini">
+                <mat-error *ngIf="userDetails.get('fullName')?.hasError('required')">
                     Full name is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
             <mat-label class="width-90">Cellphone Number</mat-label>
             <mat-form-field appearance="outline" class="width-90 input">
-                <input type="number" [(ngModel)]="userDetails.cellNumber" #cellNumber="ngModel" name="cellNumber" matInput placeholder="062 810 7203" required>
-                <mat-error *ngIf="cellNumber.invalid && cellNumber.errors && cellNumber.errors['pattern']">
-                    Please enter a valid cellNumber address
-                </mat-error>
-                <mat-error *ngIf="cellNumber.invalid && cellNumber.errors && cellNumber.errors['required']">
-                    cellNumber is <strong>required</strong>
+                <input formControlName="cellNumber" oninput="this.value = this.value.replace(/[^\d]/g, '')" type="text" matInput placeholder="062 810 7203">
+                <mat-icon matPrefix>+27</mat-icon>
+                <mat-error *ngIf="userDetails.get('cellNumber')?.hasError('required')">
+                    Cellphone number is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-            <mat-label class="width-90">Password</mat-label>
+            <mat-label class="width-90">ID Number</mat-label>
             <mat-form-field appearance="outline" class="width-90 input">
-                <input [type]="isVisible ? 'text' : 'password'" [(ngModel)]="userDetails.password" #password="ngModel" name="password"  matInput placeholder="***********" required>
-                <mat-error *ngIf="password.invalid && password.errors && password.errors['required']">
-                    Password is <strong>required</strong>
+                <input formControlName="idNumber" oninput="this.value = this.value.replace(/[^\d]/g, '')" type="text" matInput placeholder="95073054665451" >
+                <mat-error *ngIf="userDetails.get('idNumber')?.hasError('required')">
+                    ID Number is <strong>required</strong>
                 </mat-error>
-                <mat-icon (click)="pwdVisibility()" matSuffix>{{isVisible ? 'visibility' : 'visibility_off'}}</mat-icon>
             </mat-form-field>
-            <mat-label class="width-90">Confirm Password</mat-label>
+            <mat-label class="width-90">Date of Birth</mat-label>
             <mat-form-field appearance="outline" class="width-90 input">
-                <input [type]="isVisible ? 'text' : 'password'" [(ngModel)]="userDetails.confirmPassword" #confirmPassword="ngModel" name="confirmPassword"  matInput placeholder="***********" required>
-                <mat-error *ngIf="confirmPassword.invalid && confirmPassword.errors && confirmPassword.errors['required']">
-                    Confirm Password is <strong>required</strong>
+                <input formControlName="dateOfBirth" type="text" matInput placeholder="1995-07-30">
+                <mat-error *ngIf="userDetails.get('dateOfBirth')?.hasError('required')">
+                    Date of birth is <strong>required</strong>
                 </mat-error>
-                <mat-icon (click)="pwdVisibility()" matSuffix>{{isVisible ? 'visibility' : 'visibility_off'}}</mat-icon>
             </mat-form-field>
             <div class="b-btn width-90">
-                <button mat-stroked-button class="full-width margin-top10px" color="primary"  (click)="submit(signUpForm)">Sign Up</button>
+                <button mat-stroked-button class="full-width margin-top10px" color="primary"
+                    (click)="submit()">Complete Profile</button>
             </div>
-            <p>Already have an account <span class="link pointer">Sign In</span></p>
         </form>
     </div>
 </div>

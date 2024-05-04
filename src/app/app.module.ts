@@ -11,7 +11,7 @@ import { ProfileComponent } from './components/forms/profile/profile.component';
 import { VerifyCodeComponent } from './components/forms/verify-code/verify-code.component';
 import { MaterialModule } from './materials/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
