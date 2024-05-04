@@ -111,6 +111,9 @@ body {
     .mat-mdc-form-field-icon-suffix>.mat-icon {
         padding: 0px 12px 20px 12px
     }
+    .mat-mdc-form-field-icon-prefix>.mat-icon {
+        margin-top: 8px;
+    }
 }
 
 // Materials buttons

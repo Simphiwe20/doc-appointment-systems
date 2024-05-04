@@ -7,16 +7,16 @@
         <p class="c-grey text-center">Please enter the code we just to email</p>
         <div class=" flex gap-1em r-start-center">
             <mat-form-field appearance="outline" class="code-input">
-                <input class="text-center" [(ngModel)]="code.a" #a="ngModel" name="a"  matInput placeholder="-" required>
+                <input class="text-center" oninput=" a.value ? b.focus() : ''" oninput="this.value = this.value.replace(/[^\d]/g,'')" maxlength="1" [(ngModel)]="code.a" #a name="a"  matInput placeholder="-" required>
             </mat-form-field>
             <mat-form-field appearance="outline" class="code-input">
-                <input class="text-center" [(ngModel)]="code.b" #b="ngModel" name="b"  matInput placeholder="-" required>
+                <input class="text-center" oninput="this.value = this.value.replace(/[^\d]/g,'')" maxlength="1" [(ngModel)]="code.b" #b name="b"  matInput placeholder="-" required>
             </mat-form-field>
             <mat-form-field appearance="outline" class="code-input">
-                <input class="text-center" [(ngModel)]="code.c" #c="ngModel" name="c"  matInput placeholder="-" required>
+                <input class="text-center" oninput="this.value = this.value.replace(/[^\d]/g,'')" maxlength="1" [(ngModel)]="code.c" #c  name="c"  matInput placeholder="-" required>
             </mat-form-field>
             <mat-form-field appearance="outline" class="code-input">
-                <input class="text-center" [(ngModel)]="code.d" #d="ngModel" name="d"  matInput placeholder="-" required>
+                <input class="text-center" oninput="this.value = this.value.replace(/[^\d]/g,'')" maxlength="1" [(ngModel)]="code.d" #d  name="d"  matInput placeholder="-" required>
             </mat-form-field>
         </div>
         <p class="c-grey text-center no-margin-b">Didn't receive OTP?</p>

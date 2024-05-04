@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-verify-code',
@@ -12,6 +12,13 @@ export class VerifyCodeComponent {
     b: '',
     c: '',
     d: ''
+  }
+
+  focusOn(ele: any, el1: any) {
+    console.log(el1)
+    if(ele.value) {
+      console.log(el1)
+    }
   }
 
   submit() {
